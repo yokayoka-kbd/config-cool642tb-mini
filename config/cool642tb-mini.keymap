@@ -39,6 +39,22 @@
         };
     };
 
+    macros {
+        new_menu: new_menu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp K_CONTEXT_MENU>,
+                <&macro_release>,
+                <&kp LEFT_SHIFT>;
+
+            label = "NEW_MENU";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -55,10 +71,10 @@
 
         FUNCTION {
             bindings = <
-&kp F1               &kp F2  &kp F3  &kp F4   &kp F5                       &kp HOME  &kp PG_UP      &kp UP_ARROW   &kp PG_DN     &kp BACKSPACE
-&mt LEFT_CONTROL F6  &kp F7  &kp F8  &kp F9   &kp F10  &none       &none   &kp END   &kp LEFT       &kp DOWN       &kp UP_ARROW  &kp RIGHT_CONTROL
-&kp LEFT_SHIFT       &none   &none   &kp F11  &kp F12  &none       &none   &kp INS   &kp LS(K_APP)  &kp LC(SPACE)  &kp CAPSLOCK  &kp RIGHT_SHIFT
-&trans               &trans  &trans  &trans   &trans   &trans      &trans  &trans                                                &kp F11
+&kp F1               &kp F2  &kp F3  &kp F4   &kp F5                       &kp HOME  &kp PG_UP  &kp UP_ARROW   &kp PG_DN        &kp BACKSPACE
+&mt LEFT_CONTROL F6  &kp F7  &kp F8  &kp F9   &kp F10  &none       &none   &kp END   &kp LEFT   &kp DOWN       &kp RIGHT_ARROW  &kp RIGHT_CONTROL
+&kp LEFT_SHIFT       &none   &none   &kp F11  &kp F12  &none       &none   &kp INS   &new_menu  &kp LC(SPACE)  &kp CAPSLOCK     &kp RIGHT_SHIFT
+&trans               &trans  &trans  &trans   &trans   &trans      &trans  &trans                                               &trans
             >;
         };
 
